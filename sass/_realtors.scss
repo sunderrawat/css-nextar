@@ -1,5 +1,31 @@
 .realtors{
-    background-color: gold;
+    background-color: $color-secondary;
     grid-row: 1/2;
-    grid-column: col-start 8/ full-end;
+    grid-column: col-start 7/ full-end;
+
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+    justify-content: center;
+    align-content: center;
+    grid-gap: 4rem;
+
+    h3{
+        justify-self: center;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        grid-gap: 3rem;
+    }
+
+    &__img{
+        height: 8rem;
+        border-radius: 50%;
+    }
+    &__details{
+        color: $color-grey-light-1;
+        align-self: center;
+    }
 }

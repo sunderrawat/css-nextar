@@ -3,11 +3,12 @@
   font-weight: 400;
 }
 
-.heading-3 {
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  color: $color-primary;
+.heading-1{
+  @extend %heading;
+  font-size: 5rem;
+  color: #fff;
 }
+
 .heading-2 {
   @extend %heading;
   font-size: 4rem;
@@ -20,6 +21,12 @@
   &--dark {
     color: $color-grey-dark-1;
   }
+}
+
+.heading-3 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: $color-primary;
 }
 
 .heading-4 {

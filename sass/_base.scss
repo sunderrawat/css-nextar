@@ -14,6 +14,7 @@ $color-grey-dark-2: #6d5d4b;
 $font-primary: "Nunito", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
+
 *,
 *::before,
 *::after {
@@ -25,6 +26,7 @@ $font-display: "Josefin Sans", sans-serif;
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+
 }
 
 body {
@@ -36,11 +38,9 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(
-      6rem,
-      1fr
-    ) [center-start] repeat(
-      8,
-      [col-start center-start] minmax(14rem, min-content) [col-end ]
-    ) [center-end] 1fr [full-end];
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start ] minmax(min-content, 14rem) [col-end ])
+    [center-end] 1fr [full-end];
+
 }

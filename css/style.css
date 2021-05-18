@@ -17,16 +17,15 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start center-start] minmax(14rem, min-content) [col-end]) [center-end] 1fr [full-end]; }
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]; }
 
-.heading-2, .heading-4, .heading-5 {
+.heading-1, .heading-2, .heading-4, .heading-5 {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400; }
 
-.heading-3 {
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  color: #c69963; }
+.heading-1 {
+  font-size: 5rem;
+  color: #fff; }
 
 .heading-2 {
   font-size: 4rem;
@@ -36,6 +35,11 @@ body {
     color: #f9f7f6; }
   .heading-2--dark {
     color: #54483a; }
+
+.heading-3 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: #c69963; }
 
 .heading-4 {
   font-size: 1.9rem; }
@@ -93,17 +97,71 @@ body {
   .btn-sidebar::before {
     transform: translateY(-1rem); }
   .btn-sidebar::after {
-    transform: translateY(1rem); }
+    transform: translateY(0.7rem); }
 
 .header {
-  background-color: rebeccapurple;
+  grid-column: full-start / col-end 6;
   grid-row: 1 / 2;
-  grid-column: full-start / col-end 7; }
+  background-image: linear-gradient(rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.9)), url("/img/hero.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1.5rem; }
+  .header__logo {
+    height: 3rem;
+    justify-self: center; }
+  .header__btn {
+    align-self: start;
+    justify-self: start; }
+  .header__seenon {
+    align-items: center;
+    font-size: 1.6rem;
+    color: #aaa;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-gap: 2rem; }
+    .header__seenon::before, .header__seenon::after {
+      content: "";
+      height: 1px;
+      background-color: currentColor;
+      display: block; }
+    .header__seenon--logos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 3rem;
+      justify-items: center;
+      align-items: center; }
+      .header__seenon--logos img {
+        max-height: 2rem;
+        max-width: 100%;
+        filter: brightness(70%); }
 
 .realtors {
-  background-color: gold;
+  background-color: #101d2c;
   grid-row: 1/2;
-  grid-column: col-start 8/ full-end; }
+  grid-column: col-start 7/ full-end;
+  display: grid;
+  grid-template-rows: repeat(2, max-content);
+  justify-content: center;
+  align-content: center;
+  grid-gap: 4rem; }
+  .realtors h3 {
+    justify-self: center; }
+  .realtors__list {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    grid-gap: 3rem; }
+  .realtors__img {
+    height: 8rem;
+    border-radius: 50%; }
+  .realtors__details {
+    color: #f9f7f6;
+    align-self: center; }
 
 .features {
   grid-row: 2 /3;
