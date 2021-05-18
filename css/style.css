@@ -8,6 +8,9 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Nunito", sans-serif;
@@ -17,15 +20,23 @@ body {
 .container {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]; }
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 62.5em) {
+    .container {
+      grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+      grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; } }
+  @media only screen and (max-width: 50em) {
+    .container {
+      grid-template-rows: 6rem calc(100vh - 6rem); } }
 
 .heading-1, .heading-2, .heading-4, .heading-5 {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400; }
 
 .heading-1 {
-  font-size: 5rem;
-  color: #fff; }
+  font-size: 4.5rem;
+  color: #f9f7f6;
+  line-height: 1; }
 
 .heading-2 {
   font-size: 4rem;
@@ -80,6 +91,12 @@ body {
   grid-column: sidebar-start / sidebar-end;
   display: flex;
   justify-content: center; }
+  @media only screen and (max-width: 62.5em) {
+    .sidebar {
+      grid-row: 1 / 2;
+      grid-column: 1 /-1;
+      justify-content: flex-end;
+      align-items: center; } }
 
 .btn-sidebar {
   border: none;
@@ -98,10 +115,13 @@ body {
     transform: translateY(-1rem); }
   .btn-sidebar::after {
     transform: translateY(0.7rem); }
+  @media only screen and (max-width: 62.5em) {
+    .btn-sidebar {
+      margin-top: 0;
+      margin-right: 3rem; } }
 
 .header {
   grid-column: full-start / col-end 6;
-  grid-row: 1 / 2;
   background-image: linear-gradient(rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.9)), url("/img/hero.jpeg");
   background-size: cover;
   background-position: center;
@@ -111,6 +131,12 @@ body {
   grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
   grid-template-columns: minmax(min-content, max-content);
   grid-row-gap: 1.5rem; }
+  @media only screen and (max-width: 50em) {
+    .header {
+      grid-column: full-start/ full-end; } }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      padding: 5rem; } }
   .header__logo {
     height: 3rem;
     justify-self: center; }
@@ -142,13 +168,17 @@ body {
 
 .realtors {
   background-color: #101d2c;
-  grid-row: 1/2;
-  grid-column: col-start 7/ full-end;
+  grid-column: col-start 7 / full-end;
   display: grid;
   grid-template-rows: repeat(2, max-content);
   justify-content: center;
   align-content: center;
-  grid-gap: 4rem; }
+  grid-column-gap: 4rem;
+  grid-row-gap: 5vh; }
+  @media only screen and (max-width: 50em) {
+    .realtors {
+      grid-column: full-start/ full-end;
+      padding: 5rem; } }
   .realtors h3 {
     justify-self: center; }
   .realtors__list {
@@ -156,18 +186,29 @@ body {
     grid-template-columns: repeat(2, max-content);
     justify-content: center;
     grid-gap: 3rem; }
+    @media only screen and (max-width: 50em) {
+      .realtors__list {
+        grid-template-rows: max-content;
+        grid-template-columns: repeat(6, max-content); } }
+    @media only screen and (max-width: 37.5em) {
+      .realtors__list {
+        grid-template-rows: max-content;
+        grid-template-columns: repeat(2, max-content); } }
   .realtors__img {
     height: 8rem;
     border-radius: 50%; }
   .realtors__details {
     color: #f9f7f6;
     align-self: center; }
+  .realtors__sold {
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: -3px; }
 
 .features {
-  grid-row: 2 /3;
   grid-column: center-start / center-end;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 6rem;
   align-items: start;
   margin: 15rem 0; }
@@ -188,34 +229,49 @@ body {
 
 .story__picture {
   background-image: linear-gradient(to right bottom, rgba(198, 153, 99, 0.5), rgba(16, 29, 44, 0.5)), url(../img/back.jpg);
-  grid-row: 3/4;
   grid-column: full-start / col-end 4;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
   align-items: center; }
+  @media only screen and (max-width: 50em) {
+    .story__picture {
+      grid-column: full-start / full-end;
+      padding: 6rem; } }
 
 .story__img-1 {
   width: 100%;
   grid-row: 2 / 6;
   grid-column: 2 / 6;
-  z-index: 10; }
+  z-index: 10;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); }
+  @media only screen and (max-width: 50em) {
+    .story__img-1 {
+      grid-row: 1 / -1;
+      grid-column: 1 / 5; } }
 
 .story__img-2 {
   width: 115%;
   grid-row: 4 / 6;
   grid-column: 4 / -1;
-  z-index: 20; }
+  z-index: 20;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); }
+  @media only screen and (max-width: 50em) {
+    .story__img-2 {
+      grid-row: 1 / -1;
+      width: 100%; } }
 
 .story__content {
   background-color: #f9f7f6;
-  grid-row: 3/4;
   grid-column: col-start 5 / full-end;
   display: grid;
-  grid-template-rows: repeat(4, min-content);
   padding: 6rem 8vw;
   align-items: center;
   justify-items: start; }
+  @media only screen and (max-width: 50em) {
+    .story__content {
+      grid-column: full-start / full-end;
+      grid-row: 5 / 6; } }
 
 .story__text {
   font-size: 1.4rem;
@@ -224,10 +280,9 @@ body {
   color: #54483a; }
 
 .homes {
-  grid-row: 4/5;
   grid-column: center-start/ center-end;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 6rem;
   margin: 15rem 0; }
 
@@ -273,7 +328,6 @@ body {
     grid-column: 1/ span 2; }
 
 .gallery {
-  grid-row: 5/6;
   grid-column: full-start/ full-end;
   padding: 1.5rem;
   display: grid;
@@ -330,7 +384,6 @@ body {
 
 .footer {
   background-color: #101d2c;
-  grid-row: 6 /-1;
   grid-column: full-start/ full-end;
   padding: 8rem; }
 
